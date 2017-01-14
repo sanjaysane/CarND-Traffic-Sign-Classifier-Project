@@ -46837,9 +46837,10 @@ CW2hwRgmlwAAAABJRU5ErkJggg==
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>data normalization techniques, such as centering to the mean, and normalizing the values between 0.1 and 0.8, were used. 
 Data mean was calculated only on the training data, and it was saved and subsequently applyed to validation and test data.
-only global mean/normalization was used, other techniqes such as local normalization (to emphasize edges) was not used.</p>
-<p>Although literature suggests other techniques such as YUV transformation, or Grayscale normalization, we did not choose that
+only global mean/normalization was used, other techniqes such as local normalization (to emphasize edges) was not used. Although literature suggests other techniques such as YUV transformation, or Grayscale normalization, we did not choose that
 here.</p>
+<p>we choose data normalization so that values from 1-255 were transformed to 0.1 to 0.8. Normalizing the data is done so that all the input variables have the same treatment in the model and the coefficients of a model are not scaled with respect to the units of the inputs.</p>
+<p>We also choose mean normalization so that all data is centered around mean, and again the model coefficients are not skewed.</p>
 
 </div>
 </div>
@@ -48292,6 +48293,16 @@ AElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Above 10 images were chosen for new image prediction. 4 of these images were common to the ones seen in our learning dataset, whereas rest 6 images were not previously seen. Out of these remaining 6, some of the characteristics, such as Pedestrian, and Roundabout had characteristics which had no common elements to the training dataset. 2 of the images, speed limits of 35 and 100 had common visual patterns to the learning images</p>
 
 </div>
 </div>
@@ -49771,6 +49782,10 @@ pMAlSXJaUuCSJDktKXBJkpyWFLgkSU5LClySJKclBS5JktPyH80pmMGM6/n5AAAAAElFTkSuQmCC
 5 of these images were not close to the training signs, but quite different from what was trained.</p>
 <p>Sign#1, speed limit of 100, was something we had trained on, but the prediction was incorrect. This is
 a confusing result, and needs further study.</p>
+<p>Also, our overall testing accuracy was 90.6%, and the overall training accuracy was 99.7%. 
+and our overall testing/prediction accuracy for these new set of 10 images was 5/10, so 50%. So, the real world accuracy 
+was not close because the dataset seen during training and during real world testing was completely
+different (at least in 4 of those images.). For the images that were similar to the training dataset, we achieved 4/5 about 80% accuracy. That one image, 100 speed limit, is confounding as to why the prediction was so off-base. Softmax probability also suggests that our model was confident in the wrong option, so this is certainly needs to be re-visited.</p>
 
 </div>
 </div>
